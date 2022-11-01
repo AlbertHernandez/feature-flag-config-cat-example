@@ -1,3 +1,4 @@
+import "./infrastructure/load-env-vars";
 import express from "express";
 import { usersRouter } from "./infrastructure/rest-api/users-router";
 import bodyParser from "body-parser";
