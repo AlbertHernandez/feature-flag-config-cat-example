@@ -12,9 +12,7 @@ function boostrap() {
   app.use("/users", usersRouter);
 
   app.listen(PORT, () => {
-    console.log(
-      `[APP] - Starting app with async local storage on port ${PORT}`
-    );
+    console.log(`[APP] - Starting app config cat on port ${PORT}`);
   });
 }
 
