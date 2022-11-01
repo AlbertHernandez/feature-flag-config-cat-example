@@ -1,20 +1,17 @@
 {
-  "name": "typescript-library-skeleton",
+  "name": "feature-flag-config-cat-example",
   "version": "1.0.0",
-  "description": "Skeleton for new typescript libraries",
+  "description": "Example of how to use config cat for handling feature flags",
   "main": "src/index.js",
   "scripts": {
     "start": "node dist/src/index.js",
-    "start:dev": "ts-node-dev --respawn src",
     "test": "jest --runInBand",
     "prepare": "husky install",
     "lint": "eslint --ignore-path .gitignore . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
     "build": "npm run build:clean && npm run build:tsc",
     "build:clean": "rimraf dist; exit 0",
-    "build:tsc": "tsc -p tsconfig.prod.json",
-    "paint-dep": "depcruise --include-only '^src' --output-type dot src | dot -T svg > dependencygraph.svg",
-    "check-dep": "depcruise --config .dependency-cruiser.js src"
+    "build:tsc": "tsc -p tsconfig.prod.json"
   },
   "repository": {
     "type": "git",
@@ -52,8 +49,7 @@
     "rimraf": "^3.0.2",
     "ts-jest": "^27.1.2",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.5.4",
-    "dependency-cruiser": "^11.15.0"
+    "typescript": "^4.5.4"
   },
   "lint-staged": {
     "*.(js|ts)": [
