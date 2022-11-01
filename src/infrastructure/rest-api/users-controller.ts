@@ -1,11 +1,11 @@
 import express from "express";
-import { WelcomeEmailSender } from "../../application/welcome-email-sender";
+import { WelcomeMessageSender } from "../../application/welcome-message-sender";
 
 export class UsersController {
-  constructor(private readonly welcomeEmailSender: WelcomeEmailSender) {}
+  constructor(private readonly welcomeMessageSender: WelcomeMessageSender) {}
 
-  async sendWelcomeEmail(req: express.Request, res: express.Response) {
-    await this.welcomeEmailSender.sendToUser(req.params.id);
+  async sendWelcomeMessage(req: express.Request, res: express.Response) {
+    await this.welcomeMessageSender.sendToUser(req.params.id);
     res.status(200).send();
   }
 }

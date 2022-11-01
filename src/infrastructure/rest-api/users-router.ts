@@ -5,7 +5,7 @@ const usersRouter = express.Router();
 
 usersRouter.post(
   "/:id/welcome",
-  usersController.sendWelcomeEmail.bind(usersController)
+  usersController.sendWelcomeMessage.bind(usersController)
 );
 
 export { usersRouter };
