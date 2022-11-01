@@ -1,10 +1,12 @@
 import { EmailSender } from "../domain/email-sender";
 import { UserByIdFinder } from "../domain/user-by-id-finder";
+import { SlackSender } from "../domain/slack-sender";
 
 export class WelcomeMessageSender {
   constructor(
     private readonly userByIdFinder: UserByIdFinder,
-    private readonly emailSender: EmailSender
+    private readonly emailSender: EmailSender,
+    private readonly slackSender: SlackSender
   ) {}
 
   async sendToUser(userId: string): Promise<void> {
@@ -13,10 +15,13 @@ export class WelcomeMessageSender {
     );
 
     const user = await this.userByIdFinder.run(userId);
-    await this.emailSender.sendEmail(user.email, "Welcome dev!");
+
+    const message = "Welcome dev!";
+    await this.emailSender.sendMessage(user.email, message);
+    await this.slackSender.sendMessage(user.slackUserId, message);
 
     console.debug(
-      "[WelcomeMessageSender] - Successfully sent the welcome email to the user"
+      "[WelcomeMessageSender] - Successfully sent the welcome message to the user"
     );
   }
 }

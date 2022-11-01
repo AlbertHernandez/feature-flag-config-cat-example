@@ -1,4 +1,4 @@
-import { InMemoryUsersRepository } from "./../../../src/infrastructure/database/in-memory-users-repository";
+import { InMemoryUsersRepository } from "../../../src/infrastructure/database/in-memory-users-repository";
 
 describe("InMemoryUsersRepository", () => {
   let repository: InMemoryUsersRepository;
